@@ -1,0 +1,29 @@
+{
+  "name": "zaal-react-snippets",
+  "displayName": "zaal-react-snippets",
+  "description": "ReactJS snippets created by Zaal Tecnologia.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaal-tecnologia/zaal-react-snippets"
+  },
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.35.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
+}
