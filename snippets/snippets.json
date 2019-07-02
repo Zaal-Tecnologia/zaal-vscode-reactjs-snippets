@@ -1,1 +1,32 @@
-{}
+{
+  "Create Ducks Pattern With a Redux Sauce": {
+    "prefix": "!reduxsauce",
+    "body": [
+      "import { createActions, createReducer } from 'reduxsauce';",
+      " ",
+      "/**",
+      "* Types + Creators",
+      "*/",
+      "export const { Types, Creators } = createActions({",
+      "  addRequest: ['parameter'],",
+      "});",
+      " ",
+      "/**",
+      "* Reducer Handlers",
+      "*/",
+      "const INITIAL_STATE = {",
+      "  inititalState: '',",
+      "};",
+      " ",
+      "const addRequest = (state = INITIAL_STATE, action) => ({ ...state, inititalState: action.parameter });",
+      " ",
+      "/**",
+      "* Reducer",
+      "*/",
+      "export default createReducer(INITIAL_STATE, {",
+      "  [Types.ADD_REQUEST]: addRequest,",
+      "});",
+      " "
+    ]
+  }
+}

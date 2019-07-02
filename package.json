@@ -1,8 +1,9 @@
 {
   "name": "zaal-react-snippets",
-  "displayName": "zaal-react-snippets",
+  "displayName": "Zaal React Snippets",
   "description": "ReactJS snippets created by Zaal Tecnologia.",
   "version": "1.0.0",
+  "publisher": "Zaal Tecnologia",
   "repository": {
     "type": "git",
     "url": "https://github.com/zaal-tecnologia/zaal-react-snippets"
