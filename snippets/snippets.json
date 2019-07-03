@@ -177,7 +177,7 @@
       "export default api;",
       ""
     ],
-    "description": "Create the Axios configuration file with the JWT Authentication Token"
+    "description": "Create the Axios configuration file with the JWT Authentication"
   },
 
   "mapStateToProps": {
