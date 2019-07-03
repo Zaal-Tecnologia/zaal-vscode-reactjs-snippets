@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://zaal.com.br">
-    <img src="" alt="Logo">
+    <img src="https://raw.githubusercontent.com/zaal-tecnologia/zaal-vscode-reactjs-snippets/develop/images/zaal_logo.png" alt="Logo">
   </a>
 
   <h3 align="center">Zaal ReactJS Snippets</h3>
@@ -12,7 +12,7 @@
 
 <!-- TABLE OF CONTENTS -->
 
-## Tabela de Conteúdo
+## Content
 
 - [About](#about)
 - [Start](#start)
@@ -47,9 +47,9 @@ To install an extension you can execute the Command Pallete \*\* by using the co
 
 ### How to use?
 
-![Create ReactJS Statefull Component(rsf)]()
+![Create ReactJS Statefull Component(rsf)](https://raw.githubusercontent.com/zaal-tecnologia/zaal-vscode-reactjs-snippets/develop/images/rsf.gif)
 
-![Create ReactJS Stateless Component(rsl)]()
+![Create ReactJS Stateless Component(rsl)](https://raw.githubusercontent.com/zaal-tecnologia/zaal-vscode-reactjs-snippets/develop/images/rsl.gif)
 
 ### Snippets
 
