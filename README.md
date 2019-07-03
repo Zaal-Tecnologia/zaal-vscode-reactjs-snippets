@@ -60,7 +60,7 @@ To install an extension you can execute the Command Pallete \*\* by using the co
 |                    `rsl →` | Creates a **Stateless Component**                                           |
 |                   `rslr →` | Creates a **Stateless Component** connected to **Redux**                    |
 |                    `rfc →` | Creates a **Functional Component**                                          |
-|                 `rhooks →` | Creates a **Functional Component**                                          |
+|                 `rhooks →` | Create a **Hooks Component**                                                |
 |           `styled-react →` | Creates a Styling file with **Styled Components**                           |
 |                    `api →` | Create an **Axios** configuration file                                      |
 |               `api-auth →` | Create the **Axios** configuration file with the **JWT Authentication**     |
