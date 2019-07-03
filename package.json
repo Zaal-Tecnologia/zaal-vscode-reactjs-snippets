@@ -1,6 +1,6 @@
 {
   "name": "zaal-react-snippets",
-  "displayName": "Zaal React Snippets",
+  "displayName": "Zaal Reactjs Snippets",
   "description": "ReactJS snippets created by Zaal Tecnologia.",
   "version": "1.0.0",
   "publisher": "Zaal Tecnologia",
@@ -18,11 +18,19 @@
   "contributes": {
     "snippets": [
       {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      },
+      {
         "language": "javascript",
         "path": "./snippets/snippets.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescriptreact",
         "path": "./snippets/snippets.json"
       }
     ]
