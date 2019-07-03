@@ -1,65 +1,98 @@
-# zaal-react-snippets README
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the README for your extension "zaal-react-snippets". After writing up a brief description, we recommend including the following sections.
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://zaal.com.br">
+    <img src="" alt="Logo">
+  </a>
 
-## Features
+  <h3 align="center">Zaal ReactJS Snippets</h3>
+</p>
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<!-- TABLE OF CONTENTS -->
 
-For example if there is an image subfolder under your extension project workspace:
+## Tabela de Conteúdo
 
-\!\[feature X\]\(images/feature-x.png\)
+- [About](#about)
+- [Start](#start)
+  - [Installation](#installation)
+  - [Supported Languages](#supported-languages)
+  - [How to use?](#how-to-use?)
+  - [Snippets](#snippets)
+- [Contribution](#contribution)
+- [License](#license)
+- [Contact](#contact)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+<!-- ABOUT THE PROJECT -->
 
-## Requirements
+## About
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Zaal ReactJS Snippets is a project that aims to make life easier for developers in ReactJS. We intend to add to this project, codes that we use frequently, so that our work becomes more automated. We have defined this project with open source so that the community can contribute with us.
 
-## Extension Settings
+Special thanks to <a href="https://github.com/rocketseat" target="_blank">Rocketseat</a>, our model was inspired by theirs.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Start
 
-For example:
+### Installation
 
-This extension contributes the following settings:
+To install an extension you can execute the Command Pallete \*\* by using the command `Ctrl + Shift + P` or `Cmd + Shift + P`, type `Install Extensions` and finally give an `Enter`, done that search by Zaal ReacJS Snippets and `install`.
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+### Supported Languages
 
-## Known Issues
+- JavaScript (.js)
+- TypeScript (.ts)
+- JavaScript React (.jsx)
+- TypeScript React (.tsx)
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### How to use?
 
-## Release Notes
+![Create ReactJS Statefull Component(rsf)]()
 
-Users appreciate release notes as you update your extension.
+![Create ReactJS Stateless Component(rsl)]()
 
-### 1.0.0
+### Snippets
 
-Initial release of ...
+|                   Snippets | Description                                                                 |
+| -------------------------: | --------------------------------------------------------------------------- |
+|                    `rsf →` | Creates a **Stateful Component**                                            |
+|                   `rsfr →` | Creates a **Stateful Component** connected to **Redux**                     |
+|                    `rsl →` | Creates a **Stateless Component**                                           |
+|                   `rslr →` | Creates a **Stateless Component** connected to **Redux**                    |
+|                    `rfc →` | Creates a **Functional Component**                                          |
+|                 `rhooks →` | Creates a **Functional Component**                                          |
+|           `styled-react →` | Creates a Styling file with **Styled Components**                           |
+|                    `api →` | Create an **Axios** configuration file                                      |
+|               `api-auth →` | Create the **Axios** configuration file with the **JWT Authentication**     |
+|        `mapstatetoprops →` | Creates the empty `mapStateToProps`                                         |
+|     `mapdispatchtoprops →` | Creates the empty `mapDispatchToProps`                                      |
+|     `create-store-react →` | Create the Redux configuration file with the Ducks and Sagas                |
+|           `root-reducer →` | Creates the file that combines the Reducers                                 |
+|              `root-saga →` | Creates the file that centralizes the Sagas                                 |
+|                   `duck →` | Create a Duck                                                               |
+|                 `rsduck →` | Create a Duck with ** Reduxsauce **                                         |
+|       `reactotron-react →` | Creates **Reactotron** configuration file                                   |
+| `reactotron-redux-react →` | Creates **Reactotron** configuration file with **Redux** and **Redux Saga** |
 
-### 1.0.1
+<!-- CONTRIBUTING -->
 
-Fixed issue #.
+## Contribution
 
-### 1.1.0
+1. Make a Project Fork
+2. Create a Branch for Your Feature
+3. Add your changes
+4. Commit your changes
+5. Push Branch
+6. Open a Pull Request
 
-Added features X, Y, and Z.
+<!-- LICENSE -->
 
------------------------------------------------------------------------------------------------------------
+## License
 
-## Working with Markdown
+Distributed under the MIT license. See `LICENSE` for more information.
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+<!-- CONTACT -->
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+## Contact
 
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Zaal Tecnologia- [Github](https://github.com/zaal-tecnologia) - **desenvolvimento@zaal.com.br**
