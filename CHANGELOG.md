@@ -4,6 +4,12 @@ All notable changes to the "zaal-react-snippets" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.1]
+
+### Changed
+
+- Change in the company logo of README.md
+
 ## [1.0.0]
 
 - Initial release of Zaal React Snippets extension.
