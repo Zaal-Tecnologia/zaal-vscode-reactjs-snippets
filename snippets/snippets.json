@@ -15,37 +15,6 @@
     ],
     "description": "Create ReactJS Stateful Component"
   },
-
-  "reduxComponent": {
-    "prefix": "rsfr",
-    "body": [
-      "import React, { Component } from 'react';",
-      "",
-      "import { bindActionCreators } from 'redux';",
-      "import { connect } from 'react-redux';",
-      "",
-      "// import { Container } from './styles';",
-      "",
-      "class ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}} extends Component {",
-      "  render() {",
-      "    return <div />;",
-      "  }",
-      "}",
-      "",
-      "const mapStateToProps = state => ({});",
-      "",
-      "// const mapDispatchToProps = dispatch =>",
-      "//   bindActionCreators(Actions, dispatch);",
-      "",
-      "export default connect(",
-      "  mapStateToProps,",
-      "  // mapDispatchToProps",
-      ")(${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}});",
-      ""
-    ],
-    "description": "Create ReactJS Stateful Redux Component"
-  },
-
   "componentStateless": {
     "prefix": "rsl",
     "body": [
@@ -60,33 +29,6 @@
     ],
     "description": "Create ReactJS Stateless Component"
   },
-
-  "reduxComponentStateless": {
-    "prefix": "rslr",
-    "body": [
-      "import React from 'react';",
-      "",
-      "import { bindActionCreators } from 'redux';",
-      "import { connect } from 'react-redux';",
-      "",
-      "// import { Container } from './styles';",
-      "",
-      "const ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}} = () => <div />;",
-      "",
-      "const mapStateToProps = state => ({});",
-      "",
-      "// const mapDispatchToProps = dispatch =>",
-      "//   bindActionCreators(Actions, dispatch);",
-      "",
-      "export default connect(",
-      "  mapStateToProps,",
-      "  // mapDispatchToProps",
-      ")(${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}});",
-      ""
-    ],
-    "description": "Create ReactJS Stateless Redux Component"
-  },
-
   "componentFunctional": {
     "prefix": "rfc",
     "body": [
@@ -103,28 +45,6 @@
     ],
     "description": "Create ReactJS Functional Component"
   },
-
-  "reactHooks": {
-    "prefix": "rhooks",
-    "body": [
-      "import { useState } from 'react';",
-      "",
-      "// import { Container } from './styles';",
-      "",
-      "const ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}} = () => {",
-      "  const [ exampleState, setExampleState ] = useState(false)",
-      "",
-      "  return (",
-      "    <div />",
-      "  );",
-      "}",
-      "",
-      "export default ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}",
-      ""
-    ],
-    "description": "Create ReactJS Hooks Component"
-  },
-
   "styles": {
     "prefix": "styled-react",
     "body": [
@@ -195,140 +115,203 @@
     "description": "Create Redux method mapDispatchToProps"
   },
 
-  "createStore": {
-    "prefix": "store-react",
+  "storeIndex": {
+    "prefix": "createStore-index",
     "body": [
-      "import { createStore, compose, applyMiddleware } from 'redux';",
+      "import { persistStore } from 'redux-persist';",
       "import createSagaMiddleware from 'redux-saga';",
       "",
-      "import reducers from './ducks';",
-      "import sagas from './sagas';",
+      "import createStore from './createStore';",
+      "import persistReducers from './persistReducers';",
       "",
-      "const middlewares = [];",
+      "import rootReducer from './modules/rootReducer';",
+      "import rootSaga from './modules/rootSaga';",
       "",
-      "const sagaMonitor = process.env.NODE_ENV === 'development' ? console.tron.createSagaMonitor() : null;",
+      "const sagaMonitor =",
+      "process.env.NODE_ENV === 'development'",
+      "? console.tron.createSagaMonitor()",
+      ": null;",
       "",
       "const sagaMiddleware = createSagaMiddleware({ sagaMonitor });",
       "",
-      "middlewares.push(sagaMiddleware);",
+      "const middlewares = [sagaMiddleware];",
       "",
-      "const composer = process.env.NODE_ENV === 'development'",
-      "  ? compose(",
-      "    applyMiddleware(...middlewares),",
-      "    console.tron.createEnhancer(),",
-      "  )",
-      "  : compose(applyMiddleware(...middlewares));",
+      "const store = createStore(persistReducers(rootReducer), middlewares);",
+      "const persistor = persistStore(store);",
       "",
-      "const store = createStore(reducers, composer);",
+      "sagaMiddleware.run(rootSaga);",
       "",
-      "sagaMiddleware.run(sagas);",
-      "",
-      "export default store;"
+      "export { store, persistor };"
     ],
-    "description": "Create Store file"
+    "description": "Create Store Index"
   },
 
-  "rootReducer": {
-    "prefix": "reducer",
+  "createStore": {
+    "prefix": "createStore",
+    "body": [
+      "import { createStore, compose, applyMiddleware } from 'redux';",
+      "",
+      "export default (reducers, middlewares) => {",
+      "const enhancer =",
+      "process.env.NODE_ENV === 'development'",
+      "? compose(",
+      "console.tron.createEnhancer(),",
+      "applyMiddleware(...middlewares)",
+      ")",
+      ": applyMiddleware(...middlewares);",
+      "",
+      "return createStore(reducers, enhancer);",
+      "};"
+    ],
+    "description": "Create a createStore.js"
+  },
+
+  "persistReducers": {
+    "prefix": "createPersistReducers",
+    "body": [
+      "import storage from 'redux-persist/lib/storage';",
+      "import { persistReducer } from 'redux-persist';",
+      "",
+      "export default reducers => {",
+      "const persistedReducer = persistReducer(",
+      "{",
+      "key: '${TM_DIRECTORY/(.*${WORKSPACE_NAME}\\\\)(.*)/${2:/capitalize}/}',",
+      "storage,",
+      "whitelist: [''],",
+      "},",
+      "reducers",
+      ");",
+      "",
+      "return persistedReducer;",
+      "};"
+    ],
+    "description": "Create Persist Reducers file"
+  },
+
+  "createModulesRootReducer": {
+    "prefix": "createModulesRootReducer",
     "body": [
       "import { combineReducers } from 'redux';",
       "",
-      "const reducers = combineReducers({",
-      "  // Remova essa linha depois de adicionar seus ducks",
-      "  example: () => [],",
-      "});",
+      "import error from './error/reducer';",
+      "import loading from './loading/reducer';",
+      "import notifications from './notifications/reducer';",
+      "import sidebar from './sidebar/reducer';",
       "",
-      "export default reducers;",
-      ""
+      "export default combineReducers({",
+      "});"
     ],
-    "description": "Create Ducks file"
+    "description": "Create rootReducer in 'modules' folder"
+  },
+
+  "createModulesRootSaga": {
+    "prefix": "createModulesRootSaga",
+    "body": [
+      "import { all } from 'redux-saga/effects';",
+      "",
+      "export default function* rootSaga() {",
+      "return yield all([]);",
+      "}"
+    ],
+    "description": "Create rootSaga in 'modules' folder"
+  },
+
+  "createAction": {
+    "prefix": "createAction",
+    "body": [
+      " export function Request() {",
+      "return {",
+      "type: '@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/REQUEST',",
+      "};",
+      "}",
+      "",
+      "export function Success(data) {",
+      "return {",
+      "type: '@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/SUCCESS',",
+      "payload: { data },",
+      "};",
+      "}",
+      "",
+      "export function Failure(data) {",
+      "return {",
+      "type: '@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/FAILURE',",
+      "payload: { data },",
+      "};",
+      "}"
+    ],
+    "description": "Create Action File"
+  },
+
+  "createReducer": {
+    "prefix": "createReducer",
+    "body": [
+      "import produce from 'immer';",
+      "",
+      "const INITIAL_STATE = {",
+      "  loading: true,",
+      "}",
+      "export default function  ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}(state = INITIAL_STATE, action) {",
+      "return produce(state, draft => {",
+      "switch (action.type) {",
+      "case '@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/REQUEST': {",
+      "draft.loading = true;",
+      "break;",
+      "}",
+      "case '@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/SUCCESS': {",
+      "draft.loading = false;",
+      "break;",
+      "}",
+      "case '@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/FAILURE': {",
+      "draft.loading = false;",
+      "break;",
+      "}",
+      " default:",
+      "}",
+      "});",
+      "}"
+    ],
+    "description": "Create Reducer File"
   },
 
   "rootSaga": {
     "prefix": "saga",
     "body": [
-      "import { all } from 'redux-saga/effects';",
+      "import { all, takeLatest, call, put } from 'redux-saga/effects';",
       "",
-      "export default function* rootSaga() {",
-      "  yield all([]);",
-      "}",
-      ""
-    ],
-    "description": "Create Sagas file"
-  },
-
-  "duck": {
-    "prefix": "duck",
-    "body": [
-      "export const Types = {${1}};",
+      "import api from '~/services/api';",
+      "import {  } from './action';",
       "",
-      "const INITIAL_STATE = {${2}};",
-      "",
-      "export default function ${3:${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}}(state = INITIAL_STATE, action) {",
-      "  switch (action.type) {",
-      "    ${4}",
-      "    default:",
-      "      return state;",
-      "  }",
+      "export function* method() {",
       "}",
       "",
-      "export const Creators = {${5}};",
-      ""
+      "export default all([",
+      "takeLatest('@${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}/REQUEST', method),",
+      "]);"
     ],
-    "description": "Create React Native Duck Module"
+    "description": "Create Sagas File"
   },
 
-  "reduxSauceDuck": {
-    "prefix": "rsduck",
-    "body": [
-      "import { createReducer, createActions } from 'reduxsauce';",
-      "",
-      "/* Types & Action Creators */",
-      "const { Types, Creators } = createActions({",
-      "// actionType: ['dataPassed'],",
-      "});",
-      "",
-      "/* Initial State */",
-      "export const INITIAL_STATE = {",
-      "// data: [],",
-      "};",
-      "",
-      "/* Reducers */",
-      "// const reducer = (state = INITIAL_STATE, action) => ",
-      "//   ({ ...state, data: action.data });",
-      "",
-      "/* Reducers to types */",
-      "",
-      "export const reducer = createReducer(INITIAL_STATE, {",
-      "// [Types.ACTION_TYPE]: reducer,",
-      "});",
-      ""
-    ],
-    "description": "Create ReactJS Duck Module with Reduxsauce"
-  },
-
-  "reactotronConfig": {
-    "prefix": "reactotron-react",
+  "createReactotronConfig": {
+    "prefix": "createReactotronConfig",
     "body": [
       "import Reactotron from 'reactotron-react-js';",
       "",
-      "if (__DEV__) {",
+      "if (process.env.NODE_ENV === 'development') {",
       "  const tron = Reactotron",
-      "    .configure()",
-      "    .useReactNative()",
       "    .connect();",
+      "",
+      "  console.tron = tron;",
       "",
       "  tron.clear();",
       "",
-      "  console.tron = tron;",
       "}",
       ""
     ],
     "description": "Create ReactJS Reactotron Config"
   },
 
-  "reactotronReduxConfig": {
-    "prefix": "reactotron-redux-react",
+  "createReactotronConfigRedux": {
+    "prefix": "createReactotronConfigRedux",
     "body": [
       "import Reactotron from 'reactotron-react-js';",
       "import { reactotronRedux } from 'reactotron-redux';",
@@ -340,9 +323,10 @@
       "    .use(sagaPlugin())",
       "    .connect();",
       "",
+      "  console.tron = tron;",
+      "",
       "  tron.clear();",
       "",
-      "  console.tron = tron;",
       "}",
       ""
     ],
