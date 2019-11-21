@@ -177,7 +177,7 @@
       "export default reducers => {",
       "  const persistedReducer = persistReducer(",
       "    {",
-      "      key: '${TM_DIRECTORY/(.*${WORKSPACE_NAME}\\\\)(.*)/${2:/capitalize}/}',",
+      "      key: '${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}}',",
       "      storage,",
       "      whitelist: [''],",
       "    },",

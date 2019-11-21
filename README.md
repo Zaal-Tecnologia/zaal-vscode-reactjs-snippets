@@ -53,26 +53,26 @@ To install an extension you can execute the Command Pallete \*\* by using the co
 
 ### Snippets
 
-|                   Snippets | Description                                                                 |
-| -------------------------: | --------------------------------------------------------------------------- |
-|                    `rsf →` | Creates a **Stateful Component**                                            |
-|                   `rsfr →` | Creates a **Stateful Component** connected to **Redux**                     |
-|                    `rsl →` | Creates a **Stateless Component**                                           |
-|                   `rslr →` | Creates a **Stateless Component** connected to **Redux**                    |
-|                    `rfc →` | Creates a **Functional Component**                                          |
-|                 `rhooks →` | Create a **Hooks Component**                                                |
-|           `styled-react →` | Creates a Styling file with **Styled Components**                           |
-|                    `api →` | Create an **Axios** configuration file                                      |
-|               `api-auth →` | Create the **Axios** configuration file with the **JWT Authentication**     |
-|        `mapstatetoprops →` | Creates the empty `mapStateToProps`                                         |
-|     `mapdispatchtoprops →` | Creates the empty `mapDispatchToProps`                                      |
-|     `create-store-react →` | Create the Redux configuration file with the Ducks and Sagas                |
-|           `root-reducer →` | Creates the file that combines the Reducers                                 |
-|              `root-saga →` | Creates the file that centralizes the Sagas                                 |
-|                   `duck →` | Create a Duck                                                               |
-|                 `rsduck →` | Create a Duck with ** Reduxsauce **                                         |
-|       `reactotron-react →` | Creates **Reactotron** configuration file                                   |
-| `reactotron-redux-react →` | Creates **Reactotron** configuration file with **Redux** and **Redux Saga** |
+|                        Snippets | Description                                                                          |
+| ------------------------------: | ------------------------------------------------------------------------------------ |
+|                         `rsf →` | Creates a **Stateful Component**                                                     |
+|                         `rsl →` | Creates a **Stateless Component**                                                    |
+|                         `rfc →` | Creates a **Functional Component**                                                   |
+|                `styled-react →` | Creates a Styling file with **Styled Components**                                    |
+|                         `api →` | Create an **Axios** configuration file                                               |
+|                    `api-auth →` | Create the **Axios** configuration file with the **JWT Authentication**              |
+|             `mapstatetoprops →` | Creates the empty **mapStateToProps**                                                |
+|          `mapdispatchtoprops →` | Creates the empty **mapDispatchToProps**                                             |
+|            `createStoreIndex →` | Create store configuration **index** file                                            |
+|                 `createStore →` | Create the **createStore.js** file                                                   |
+|       `createPersistReducers →` | Create the **Redux Persist** Configuration File                                      |
+|    `createModulesRootReducer →` | Creates the **rootReducer** configuration file located inside the **modules** folder |
+|       `createModulesRootSaga →` | Creates the **rootSaga** configuration file located inside the **modules** folder    |
+|                `createAction →` | Create Redux **Action**                                                              |
+|               `createReducer →` | Create Redux **Reducer**                                                             |
+|                  `createSaga →` | Create Redux **Saga**                                                                |
+|      `createReactotronConfig →` | Creates **Reactotron** configuration file                                            |
+| `createReactotronConfigRedux →` | Creates **Reactotron** configuration file with **Redux** and **Redux Saga**          |
 
 <!-- CONTRIBUTING -->
 
