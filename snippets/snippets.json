@@ -115,8 +115,8 @@
     "description": "Create Redux method mapDispatchToProps"
   },
 
-  "storeIndex": {
-    "prefix": "createStore-index",
+  "createStoreIndex": {
+    "prefix": "createStoreIndex",
     "body": [
       "import { persistStore } from 'redux-persist';",
       "import createSagaMiddleware from 'redux-saga';",
@@ -166,7 +166,7 @@
     "description": "Create a createStore.js"
   },
 
-  "persistReducers": {
+  "createPersistReducers": {
     "prefix": "createPersistReducers",
     "body": [
       "import storage from 'redux-persist/lib/storage';",
@@ -273,8 +273,8 @@
     "description": "Create Reducer File"
   },
 
-  "rootSaga": {
-    "prefix": "saga",
+  "createSaga": {
+    "prefix": "createSaga",
     "body": [
       "import { all, takeLatest, call, put } from 'redux-saga/effects';",
       "",
