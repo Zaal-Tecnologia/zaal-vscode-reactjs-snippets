@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://zaal.com.br">
-    <img src="https://raw.githubusercontent.com/zaal-tecnologia/zaal-vscode-reactjs-snippets/develop/images/zaal_logo.png" alt="Logo">
+    <img src="https://raw.githubusercontent.com/zaal-tecnologia/zaal-vscode-reactjs-snippets/master/images/zaal_logo.png" alt="Logo">
   </a>
 
   <h3 align="center">Zaal ReactJS Snippets</h3>
